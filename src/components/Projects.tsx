@@ -22,7 +22,7 @@ export default function Projects() {
       title: "SK Modern Blog",
       category: "Next.js Fullstack",
       image: "/blog.png",
-      link: "#",
+      link: "https://sk-blog-nextjs-8fw1-k1zha84cz-sikandar8sa-3843s-projects.vercel.app/",
     },
   ];
 
