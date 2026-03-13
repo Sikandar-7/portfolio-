@@ -18,7 +18,7 @@ export default function ProfileCard() {
         {/* Profile Image with Orange Backdrop */}
         <div className="relative w-64 h-64 sm:w-[280px] sm:h-[280px] rounded-[24px] overflow-hidden mb-6 z-10 border-4 border-card-bg shadow-lg">
           <Image
-            src="/sikandar.webp"
+            src="/ss.webp"
             alt="Profile Avatar"
             fill
             className="object-cover"
