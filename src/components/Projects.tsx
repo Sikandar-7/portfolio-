@@ -14,7 +14,7 @@ export default function Projects() {
       id: 2,
       title: "SK Fashion Store",
       category: "Premium E-Commerce",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      image: "/ss.webp",
       link: "https://dev-sk-fashion-store.pantheonsite.io/",
     },
     {
