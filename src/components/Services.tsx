@@ -47,7 +47,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="bg-card-bg border border-white/5 rounded-3xl p-8 hover:bg-[#1A1A1A] transition-colors group"
+            className="bg-[#111111] border border-[#222222] rounded-3xl p-8 hover:bg-[#1A1A1A] transition-colors group"
           >
             {service.icon}
             <h3 className="text-2xl font-bold font-sora mb-3 text-white group-hover:text-primary transition-colors">
