@@ -21,7 +21,7 @@ export default function ProfileCard() {
             src="/profile.jpg"
             alt="Profile Avatar"
             fill
-            className="object-cover"
+            className="object-cover scale-[1.35] origin-[50%_15%]"
             priority
           />
         </div>
