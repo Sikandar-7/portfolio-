@@ -21,9 +21,9 @@ export default function Projects() {
       category: "Full Stack App",
       description: "A multi-panel food delivery platform with customer, restaurant, rider, and admin dashboards — built with Next.js, featuring real-time order tracking and map integration.",
       image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=800&auto=format&fit=crop",
-      link: "https://github.com/Sikandar-7/food-delivery-app",
+      link: "https://food-delivery-app-beta-ochre.vercel.app/",
       github: "https://github.com/Sikandar-7/food-delivery-app",
-      tag: "GitHub",
+      tag: "Live",
     },
     {
       id: 3,
