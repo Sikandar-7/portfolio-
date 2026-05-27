@@ -1,13 +1,16 @@
-import { Code2, MonitorPlay, Paintbrush, PenTool, Github, Webhook } from "lucide-react";
+import { Code2, MonitorPlay, Paintbrush, PenTool, Github, Webhook, Megaphone, LineChart, Image as ImageIcon } from "lucide-react";
 
 export default function Tools() {
   const tools = [
-    { id: 1, name: "React", category: "JavaScript Library", icon: Code2 },
-    { id: 2, name: "Next.js", category: "React Framework", icon: MonitorPlay },
-    { id: 3, name: "Tailwind CSS", category: "Styling Framework", icon: Paintbrush },
-    { id: 4, name: "Figma", category: "UI/UX Design", icon: PenTool },
-    { id: 5, name: "GitHub", category: "Version Control", icon: Github },
-    { id: 6, name: "Node.js", category: "Backend Runtime", icon: Webhook },
+    { id: 1, name: "Next.js", category: "React Framework", icon: MonitorPlay },
+    { id: 2, name: "Tailwind CSS", category: "Styling Framework", icon: Paintbrush },
+    { id: 3, name: "Node.js", category: "Backend Runtime", icon: Webhook },
+    { id: 4, name: "Meta Ads", category: "Performance Marketing", icon: Megaphone },
+    { id: 5, name: "Google Analytics", category: "Data & SEO", icon: LineChart },
+    { id: 6, name: "Canva", category: "Social Graphics", icon: ImageIcon },
+    { id: 7, name: "Figma", category: "UI/UX Design", icon: PenTool },
+    { id: 8, name: "React", category: "JavaScript Library", icon: Code2 },
+    { id: 9, name: "GitHub", category: "Version Control", icon: Github },
   ];
 
   return (
