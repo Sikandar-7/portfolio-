@@ -31,7 +31,7 @@ export default function ProfileCard() {
           Sikandar Abbas
         </h2>
         <p className="text-sm text-gray-600 mt-2 max-w-[250px] font-medium leading-relaxed">
-          A Full Stack Developer dedicated to building highly performant and modern web applications.
+          Full Stack Developer & Digital Growth Expert. I build modern apps and scale them to the next level.
         </p>
 
         {/* Social Icons Placeholder */}
@@ -39,7 +39,7 @@ export default function ProfileCard() {
 
         {/* Let's Talk Button */}
         <Link href="#contact" className="bg-primary text-black font-semibold py-4 px-6 rounded-2xl w-full flex items-center justify-center gap-2 hover:bg-white transition-colors duration-300">
-          <span>Let&apos;s Talk</span>
+          <span>Book Free Growth Call</span>
           <svg
             width="20"
             height="20"
