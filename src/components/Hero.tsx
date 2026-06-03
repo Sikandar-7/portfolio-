@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
+  const yearsOfExperience = String(new Date().getFullYear() - 2023).padStart(2, '0');
+
   return (
     <section id="home" className="flex flex-col justify-center mt-12 lg:mt-0 pt-0 sm:pt-4">
       {/* Massive Typography Title */}
@@ -48,7 +50,7 @@ export default function Hero() {
         </div>
 
         <div>
-          <h3 className="text-5xl lg:text-6xl font-black font-sora mb-2">+02</h3>
+          <h3 className="text-5xl lg:text-6xl font-black font-sora mb-2">+{yearsOfExperience}</h3>
           <p className="text-sm font-bold uppercase tracking-widest text-muted">Years of<br />Experience</p>
         </div>
         <div>

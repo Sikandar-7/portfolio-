@@ -1,4 +1,6 @@
 export default function Experience() {
+  const yearsOfExperience = String(new Date().getFullYear() - 2023).padStart(2, '0');
+
   const experiences = [
     {
       id: 1,
@@ -19,7 +21,7 @@ export default function Experience() {
   return (
     <section id="experience" className="flex flex-col pt-12 border-t border-border">
       <h2 className="text-[3rem] lg:text-[4rem] font-black font-sora leading-none uppercase mb-16">
-        <span className="block text-white">02 Years Of</span>
+        <span className="block text-white">{yearsOfExperience} Years Of</span>
         <span className="block text-[#333333]">Experience</span>
       </h2>
 
