@@ -8,8 +8,8 @@ export default function Projects() {
     {
       id: 1,
       title: "Chaudary Mobile Parts",
-      category: "Full Stack E-Commerce",
-      description: "A complete mobile parts storefront built with Next.js & Medusa — featuring sale badges, category/brand filters with dropdowns, infinite scroll, and a custom admin panel.",
+      category: "B2B Wholesale E-Commerce",
+      description: "A B2B wholesale mobile parts platform built with Medusa v2 & Next.js — buyer-approval price gating, real-time inventory with stock badges, dark mode, and a custom admin dashboard with WhatsApp order sharing. Security-hardened (9/10) with CSP, rate limiting, and strict CORS.",
       image: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=800&auto=format&fit=crop",
       link: "https://chaudharymobileparts.tech/pk",
       github: null,
@@ -17,9 +17,9 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Food Delivery App",
-      category: "Full Stack App",
-      description: "A multi-panel food delivery platform with customer, restaurant, rider, and admin dashboards — built with Next.js, featuring real-time order tracking and map integration.",
+      title: "Order.pk — Food Delivery Platform",
+      category: "Full Stack Platform",
+      description: "A multi-panel food delivery platform with customer, restaurant, rider and admin dashboards — Next.js + Express + Prisma on Supabase Postgres. JWT role-based auth, server-side order pricing and coupon validation, deployed as separate frontend and API projects on Vercel.",
       image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=800&auto=format&fit=crop",
       link: "https://food-delivery-app-beta-ochre.vercel.app/",
       github: "https://github.com/Sikandar-7/food-delivery-app",
