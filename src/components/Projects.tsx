@@ -31,8 +31,8 @@ export default function Projects() {
       category: "Multi-Tenant SaaS",
       description: "A self-hostable WhatsApp CRM built on the official WhatsApp Business API — shared team inbox, contacts with tags and custom fields, Kanban sales pipelines, broadcast campaigns and no-code automations. Next.js + Supabase (Postgres & Auth), with companion Android apps packaged via Capacitor.",
       image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
-      link: "https://wa-crm-chi.vercel.app/",
-      github: "https://github.com/Sikandar-7/wa-crm",
+      link: "https://personal-wa-crm.vercel.app/",
+      github: "https://github.com/Sikandar-7/personal-wa-crm",
       tag: "Live",
     },
     {
