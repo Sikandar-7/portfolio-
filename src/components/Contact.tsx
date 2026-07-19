@@ -54,6 +54,15 @@ export default function Contact() {
         <span className="block text-[#333333]">Together</span>
       </h2>
 
+      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 -mt-12 mb-16 text-center">
+        <span className="inline-flex items-center gap-2 text-sm text-gray-400">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+          Available for freelance projects
+        </span>
+        <span className="hidden sm:inline text-[#333333]">|</span>
+        <span className="text-sm text-gray-500">Client references available on request</span>
+      </div>
+
       <div className="max-w-xl mx-auto w-full">
         <form className="flex flex-col gap-6" onSubmit={handleSend}>
           <div className="flex flex-col md:flex-row gap-6">
