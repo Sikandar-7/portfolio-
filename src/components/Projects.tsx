@@ -2,11 +2,25 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
+import { useState } from "react";
+
+type ProjectType = "client" | "self" | "mockup";
 
 export default function Projects() {
-  const projects = [
+  const projects: {
+    id: number;
+    type: ProjectType;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    link: string;
+    github: string | null;
+    tag: string;
+  }[] = [
     {
       id: 1,
+      type: "client",
       title: "Chaudary Mobile Parts",
       category: "B2B Wholesale E-Commerce",
       description: "A B2B wholesale mobile parts platform built with Medusa v2 & Next.js — buyer-approval price gating, real-time inventory with stock badges, dark mode, and a custom admin dashboard with WhatsApp order sharing. Security-hardened (9/10) with CSP, rate limiting, and strict CORS.",
@@ -16,27 +30,8 @@ export default function Projects() {
       tag: "Live",
     },
     {
-      id: 2,
-      title: "Order.pk — Food Delivery Platform",
-      category: "Full Stack Platform",
-      description: "A multi-panel food delivery platform with customer, restaurant, rider and admin dashboards — Next.js + Express + Prisma on Supabase Postgres. JWT role-based auth, server-side order pricing and coupon validation, deployed as separate frontend and API projects on Vercel.",
-      image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=800&auto=format&fit=crop",
-      link: "https://food-delivery-app-beta-ochre.vercel.app/",
-      github: "https://github.com/Sikandar-7/food-delivery-app",
-      tag: "Live",
-    },
-    {
-      id: 3,
-      title: "hashChat — WhatsApp CRM",
-      category: "Multi-Tenant SaaS",
-      description: "A self-hostable WhatsApp CRM built on the official WhatsApp Business API — shared team inbox, contacts with tags and custom fields, Kanban sales pipelines, broadcast campaigns and no-code automations. Next.js + Supabase (Postgres & Auth), with companion Android apps packaged via Capacitor.",
-      image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
-      link: "https://personal-wa-crm.vercel.app/",
-      github: "https://github.com/Sikandar-7/personal-wa-crm",
-      tag: "Live",
-    },
-    {
       id: 4,
+      type: "client",
       title: "Orbit API — WhatsApp Business Platform",
       category: "Client Project",
       description: "A WhatsApp Business API platform delivered for a client — multi-tenant WABA onboarding, plan-gated messaging limits, team inbox and campaign tooling. Built as four services: a Next.js dashboard, Node/Express API, marketing site and a Flutter mobile app.",
@@ -46,7 +41,41 @@ export default function Projects() {
       tag: "Live",
     },
     {
+      id: 3,
+      type: "self",
+      title: "hashChat — WhatsApp CRM",
+      category: "Multi-Tenant SaaS",
+      description: "A self-hostable WhatsApp CRM built on the official WhatsApp Business API — shared team inbox, contacts with tags and custom fields, Kanban sales pipelines, broadcast campaigns and no-code automations. Next.js + Supabase (Postgres & Auth), with companion Android apps packaged via Capacitor.",
+      image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
+      link: "https://personal-wa-crm.vercel.app/",
+      github: "https://github.com/Sikandar-7/personal-wa-crm",
+      tag: "Live",
+    },
+    {
+      id: 2,
+      type: "mockup",
+      title: "Order.pk — Food Delivery Platform",
+      category: "Full Stack Platform",
+      description: "A multi-panel food delivery platform with customer, restaurant, rider and admin dashboards — Next.js + Express + Prisma on Supabase Postgres. JWT role-based auth, server-side order pricing and coupon validation, deployed as separate frontend and API projects on Vercel.",
+      image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=800&auto=format&fit=crop",
+      link: "https://food-delivery-app-beta-ochre.vercel.app/",
+      github: "https://github.com/Sikandar-7/food-delivery-app",
+      tag: "Live",
+    },
+    {
+      id: 6,
+      type: "self",
+      title: "SK Modern Blog",
+      category: "Astro + Supabase",
+      description: "A fast, static-first blog rebuilt on Astro — MDX articles ship almost no JavaScript, with a Supabase-backed community layer for accounts, a markdown editor, comments and an admin panel. Per-article share cards and an llms.txt for answer engines.",
+      image: "/blog.png",
+      link: "https://sk-blog-nextjs-8fw1.vercel.app/",
+      github: null,
+      tag: "Live",
+    },
+    {
       id: 5,
+      type: "mockup",
       title: "Love & Joy",
       category: "Full Stack App",
       description: "A modern full stack application built with cutting-edge web technologies.",
@@ -55,27 +84,53 @@ export default function Projects() {
       github: null,
       tag: "Live",
     },
-    {
-      id: 6,
-      title: "SK Modern Blog",
-      category: "Next.js Fullstack",
-      description: "A fully functional blog platform with dynamic content, markdown support, and clean design.",
-      image: "/blog.png",
-      link: "https://sk-blog-nextjs-8fw1.vercel.app/",
-      github: null,
-      tag: "Live",
-    },
   ];
+
+  const filters: { key: ProjectType | "all"; label: string }[] = [
+    { key: "all", label: "All" },
+    { key: "client", label: "Client Work" },
+    { key: "self", label: "Self Projects" },
+    { key: "mockup", label: "Mockups" },
+  ];
+
+  const [active, setActive] = useState<ProjectType | "all">("all");
+
+  // Only show a filter tab when at least one project belongs to it,
+  // so an empty "Mockups" tab never appears until there is a mockup.
+  const present = new Set(projects.map((p) => p.type));
+  const visibleFilters = filters.filter((f) => f.key === "all" || present.has(f.key));
+
+  const shown = active === "all" ? projects : projects.filter((p) => p.type === active);
+  const countFor = (key: ProjectType | "all") =>
+    key === "all" ? projects.length : projects.filter((p) => p.type === key).length;
 
   return (
     <section id="projects" className="flex flex-col pt-12">
-      <h2 className="text-[3rem] lg:text-[4rem] font-black font-sora leading-none uppercase mb-12">
+      <h2 className="text-[3rem] lg:text-[4rem] font-black font-sora leading-none uppercase mb-8">
         <span className="block text-white">Recent</span>
         <span className="block text-[#333333]">Projects</span>
       </h2>
 
+      {/* Filter tabs — client work vs personal builds vs mockups */}
+      <div className="flex flex-wrap gap-2 mb-10">
+        {visibleFilters.map((f) => (
+          <button
+            key={f.key}
+            onClick={() => setActive(f.key)}
+            className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
+              active === f.key
+                ? "bg-primary text-white"
+                : "bg-[#111111] border border-[#222222] text-gray-400 hover:text-white hover:border-[#333333]"
+            }`}
+          >
+            {f.label}
+            <span className="ml-1.5 opacity-60">{countFor(f.key)}</span>
+          </button>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project) => (
+        {shown.map((project) => (
           <a
             href={project.link}
             target="_blank"
@@ -97,6 +152,11 @@ export default function Projects() {
               {/* Tag Badge */}
               <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider ${project.tag === 'Live' ? 'bg-green-500/90 text-white' : 'bg-white/20 backdrop-blur-sm text-white border border-white/30'}`}>
                 {project.tag === 'Live' ? '🟢 Live' : '⬡ GitHub'}
+              </div>
+
+              {/* Type Badge */}
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-black/50 backdrop-blur-sm text-white border border-white/20">
+                {project.type === 'client' ? 'Client' : project.type === 'mockup' ? 'Mockup' : 'Personal'}
               </div>
             </div>
 
