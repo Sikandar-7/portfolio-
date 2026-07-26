@@ -84,6 +84,17 @@ export default function Projects() {
       github: null,
       tag: "Live",
     },
+    {
+      id: 7,
+      type: "mockup",
+      title: "SK Fashion Store",
+      category: "E-Commerce Mockup",
+      description: "A premium fashion e-commerce storefront — polished product pages, cart and a full checkout flow. A design/build mockup.",
+      image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop",
+      link: "https://dev-sk-fashion-store.pantheonsite.io/",
+      github: null,
+      tag: "Live",
+    },
   ];
 
   const filters: { key: ProjectType | "all"; label: string }[] = [
