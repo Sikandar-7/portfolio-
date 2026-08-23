@@ -19,6 +19,28 @@ export default function Projects() {
     tag: string;
   }[] = [
     {
+      id: 8,
+      type: "self",
+      title: "Buraq Tech — Software House",
+      category: "Founder",
+      description: "The software house I founded in Lahore — websites, online stores, mobile apps and WhatsApp automation for clients in Pakistan and abroad. Every client sees a working demo before paying anything, and the price is quoted before the work starts, not after. Next.js, with a landing page per service, structured data throughout and content written to be quotable by answer engines.",
+      image: "/buraqtech.png",
+      link: "https://buraqtech.uk",
+      github: null,
+      tag: "Live",
+    },
+    {
+      id: 3,
+      type: "self",
+      title: "hashChat — WhatsApp CRM",
+      category: "My SaaS Product",
+      description: "A multi-tenant WhatsApp CRM I built and run as a subscription product — shared team inbox on the official WhatsApp Business API, contacts with tags and custom fields, Kanban pipelines, broadcast campaigns, no-code automation flows and AI replies. Runs on my own infrastructure: Docker on a VPS, self-hosted Supabase, nightly verified backups and uptime monitoring. Android app packaged with Capacitor.",
+      image: "/hashchat.png",
+      link: "https://hashchat.uk",
+      github: "https://github.com/Sikandar-7/personal-wa-crm",
+      tag: "Live",
+    },
+    {
       id: 1,
       type: "client",
       title: "Chaudary Mobile Parts",
@@ -38,17 +60,6 @@ export default function Projects() {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
       link: "https://orbit-api-landing.vercel.app/",
       github: "https://github.com/Sikandar-7/orbit-api-landing",
-      tag: "Live",
-    },
-    {
-      id: 3,
-      type: "self",
-      title: "hashChat — WhatsApp CRM",
-      category: "Multi-Tenant SaaS",
-      description: "A self-hostable WhatsApp CRM built on the official WhatsApp Business API — shared team inbox, contacts with tags and custom fields, Kanban sales pipelines, broadcast campaigns and no-code automations. Next.js + Supabase (Postgres & Auth), with companion Android apps packaged via Capacitor.",
-      image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
-      link: "https://personal-wa-crm.vercel.app/",
-      github: "https://github.com/Sikandar-7/personal-wa-crm",
       tag: "Live",
     },
     {

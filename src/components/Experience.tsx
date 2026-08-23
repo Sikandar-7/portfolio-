@@ -3,6 +3,13 @@ export default function Experience() {
 
   const experiences = [
     {
+      id: 0,
+      role: "Founder",
+      company: "Buraq Tech",
+      date: "2026 — Present",
+      description: "Founded and run a Lahore-based software house building websites, online stores, mobile apps and WhatsApp automation for clients in Pakistan and abroad — clients see a working demo before paying anything. Also the studio behind hashChat, a multi-tenant WhatsApp CRM sold as a subscription product.",
+    },
+    {
       id: 1,
       role: "Full Stack Developer",
       company: "Freelance",
