@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ProjectFrame, { ProjectKind } from "./ProjectFrame";
 import { ArrowUpRight, Github } from "lucide-react";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ export default function Projects() {
     title: string;
     category: string;
     description: string;
-    image: string;
+    kind: ProjectKind;
     link: string;
     github: string | null;
     tag: string;
@@ -24,7 +24,7 @@ export default function Projects() {
       title: "Buraq Tech — Software House",
       category: "Founder",
       description: "The software house I founded in Lahore — websites, online stores, mobile apps and WhatsApp automation for clients in Pakistan and abroad. Every client sees a working demo before paying anything, and the price is quoted before the work starts, not after. Next.js, with a landing page per service, structured data throughout and content written to be quotable by answer engines.",
-      image: "/buraqtech.png",
+      kind: "saas",
       link: "https://buraqtech.uk",
       github: null,
       tag: "Live",
@@ -35,7 +35,7 @@ export default function Projects() {
       title: "hashChat — WhatsApp CRM",
       category: "My SaaS Product",
       description: "A multi-tenant WhatsApp CRM I built and run as a subscription product — shared team inbox on the official WhatsApp Business API, contacts with tags and custom fields, Kanban pipelines, broadcast campaigns, no-code automation flows and AI replies. Runs on my own infrastructure: Docker on a VPS, self-hosted Supabase, nightly verified backups and uptime monitoring. Android app packaged with Capacitor.",
-      image: "/hashchat.png",
+      kind: "inbox",
       link: "https://hashchat.uk",
       github: null,
       tag: "Live",
@@ -46,7 +46,7 @@ export default function Projects() {
       title: "Chaudary Mobile Parts",
       category: "B2B Wholesale E-Commerce",
       description: "A B2B wholesale mobile parts platform built with Medusa v2 & Next.js — buyer-approval price gating, real-time inventory with stock badges, dark mode, and a custom admin dashboard with WhatsApp order sharing. Security-hardened (9/10) with CSP, rate limiting, and strict CORS.",
-      image: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=800&auto=format&fit=crop",
+      kind: "catalogue",
       link: "https://chaudharymobileparts.tech/pk",
       github: null,
       tag: "Live",
@@ -57,7 +57,7 @@ export default function Projects() {
       title: "Orbit API — WhatsApp Business Platform",
       category: "Client Project",
       description: "A WhatsApp Business API platform delivered for a client — multi-tenant WABA onboarding, plan-gated messaging limits, team inbox and campaign tooling. Built as four services: a Next.js dashboard, Node/Express API, marketing site and a Flutter mobile app.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      kind: "dashboard",
       link: "https://orbit-api-landing.vercel.app/",
       github: "https://github.com/Sikandar-7/orbit-api-landing",
       tag: "Live",
@@ -68,7 +68,7 @@ export default function Projects() {
       title: "Order.pk — Food Delivery Platform",
       category: "Full Stack Platform",
       description: "A multi-panel food delivery platform with customer, restaurant, rider and admin dashboards — Next.js + Express + Prisma on Supabase Postgres. JWT role-based auth, server-side order pricing and coupon validation, deployed as separate frontend and API projects on Vercel.",
-      image: "https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=800&auto=format&fit=crop",
+      kind: "threepanel",
       link: "https://demo-food.buraqtech.uk/",
       github: "https://github.com/Sikandar-7/food-delivery-app",
       tag: "Live",
@@ -79,7 +79,7 @@ export default function Projects() {
       title: "SK Modern Blog",
       category: "Astro + Supabase",
       description: "A fast, static-first blog rebuilt on Astro — MDX articles ship almost no JavaScript, with a Supabase-backed community layer for accounts, a markdown editor, comments and an admin panel. Per-article share cards and an llms.txt for answer engines.",
-      image: "/blog.png",
+      kind: "article",
       link: "https://demo-blog.buraqtech.uk/",
       github: null,
       tag: "Live",
@@ -90,7 +90,7 @@ export default function Projects() {
       title: "Love & Joy",
       category: "Full Stack App",
       description: "A single-product storefront for a teddy bear brand — three sizes from 2.5 to 5.5 feet, cash on delivery by default, and a checkout short enough that a gift buyer actually finishes it.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      kind: "product",
       link: "https://loveandjoy.vercel.app/",
       github: null,
       tag: "Live",
@@ -101,7 +101,7 @@ export default function Projects() {
       title: "SK Fashion Store",
       category: "E-Commerce Mockup",
       description: "A premium fashion e-commerce storefront — polished product pages, cart and a full checkout flow. A design/build mockup.",
-      image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop",
+      kind: "fashion",
       link: "https://demo-store.buraqtech.uk/",
       github: null,
       tag: "Live",
@@ -160,16 +160,11 @@ export default function Projects() {
             key={project.id}
             className="group relative rounded-3xl overflow-hidden cursor-pointer bg-[#111111] border border-[#222222] flex flex-col"
           >
-            {/* Image Container */}
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-colors duration-500" />
+            {/* Preview — schematic, not a screenshot. See ProjectFrame. */}
+            <div className="relative aspect-[4/3] overflow-hidden border-b border-[#222222]">
+              <div className="h-full w-full transition-transform duration-700 group-hover:scale-[1.03]">
+                <ProjectFrame host={new URL(project.link).host} kind={project.kind} />
+              </div>
 
               {/* Tag Badge */}
               <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider ${project.tag === 'Live' ? 'bg-green-500/90 text-white' : 'bg-white/20 backdrop-blur-sm text-white border border-white/30'}`}>
