@@ -64,7 +64,7 @@ export default function Projects() {
     },
     {
       id: 2,
-      type: "mockup",
+      type: "self",
       title: "Order.pk — Food Delivery Platform",
       category: "Full Stack Platform",
       description: "A multi-panel food delivery platform with customer, restaurant, rider and admin dashboards — Next.js + Express + Prisma on Supabase Postgres. JWT role-based auth, server-side order pricing and coupon validation, deployed as separate frontend and API projects on Vercel.",
@@ -86,7 +86,7 @@ export default function Projects() {
     },
     {
       id: 5,
-      type: "mockup",
+      type: "self",
       title: "Love & Joy",
       category: "Full Stack App",
       description: "A single-product storefront for a teddy bear brand — three sizes from 2.5 to 5.5 feet, cash on delivery by default, and a checkout short enough that a gift buyer actually finishes it.",
