@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   // metadataBase makes relative OG/Twitter image paths resolve against the
   // real domain. Vercel infers it in production, but without it a local
   // build resolves them to localhost and the warning hides real problems.
-  metadataBase: new URL("https://portfolio-five-black-18.vercel.app"),
+  metadataBase: new URL("https://sikandarabbas.com"),
   title: "Sikandar Abbas - Full Stack Developer",
   // The description is the sentence Google shows under the title and the
   // one that appears on every shared link. It said "Premium Portfolio
