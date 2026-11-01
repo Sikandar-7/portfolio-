@@ -1,6 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-
-import ContactForm from "@/components/ContactForm";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const yearsOfExperience = new Date().getFullYear() - 2023;
 
@@ -42,92 +41,64 @@ const experience = [
   },
 ];
 
-const projects: { title: string; description: string; stack?: string; link: string }[] = [
-  {
-    title: "Buraq Tech",
-    description: "Software house website with a landing page for each service and structured data throughout.",
-    stack: "Next.js",
-    link: "https://buraqtech.uk",
-  },
-  {
-    title: "hashChat",
-    description: "Multi-tenant WhatsApp CRM with a shared team inbox, pipelines, broadcasts, automation flows and an Android app.",
-    stack: "Next.js, Supabase, Kotlin, WhatsApp Business API",
-    link: "https://hashchat.uk",
-  },
-  {
-    title: "Chaudary Mobile Parts",
-    description: "B2B wholesale store with buyer-approval pricing, live stock and WhatsApp order sharing.",
-    stack: "Medusa v2, Next.js",
-    link: "https://chaudharymobileparts.tech/pk",
-  },
-  {
-    title: "Orbit API",
-    description: "WhatsApp Business platform for a client, with multi-tenant onboarding, team inbox and campaigns.",
-    stack: "Next.js, Node.js, Express, Flutter",
-    link: "https://orbit-api-landing.vercel.app/",
-  },
-  {
-    title: "Order.pk",
-    description: "Food delivery platform with customer, restaurant, rider and admin panels.",
-    stack: "Next.js, Express, Prisma, PostgreSQL",
-    link: "https://demo-food.buraqtech.uk/",
-  },
-  {
-    title: "SK Modern Blog",
-    description: "Fast static blog with accounts, a markdown editor, comments and an admin panel.",
-    stack: "Astro, MDX, Supabase",
-    link: "https://demo-blog.buraqtech.uk/",
-  },
-  {
-    title: "Love & Joy",
-    description: "Single-product store for a teddy bear brand, with cash on delivery and a short checkout.",
-    link: "https://loveandjoy.vercel.app/",
-  },
-  {
-    title: "SK Fashion Store",
-    description: "Fashion store demo with product pages, cart and a full checkout flow.",
-    stack: "Next.js, Tailwind CSS",
-    link: "https://demo-store.buraqtech.uk/",
-  },
-  {
-    title: "SK Player",
-    description: "Free media player for Windows.",
-    stack: "Python, PySide6, libVLC",
-    link: "https://buraqtech.uk/apps",
-  },
-  {
-    title: "SK Video Repair",
-    description: "Free Windows tool that repairs damaged video files.",
-    stack: "Python",
-    link: "https://buraqtech.uk/apps",
-  },
-];
-
 const skills = [
-  { group: "Frontend", items: "Next.js, React, TypeScript, Tailwind CSS, Astro" },
-  { group: "Backend", items: "Node.js, Express, Prisma, PostgreSQL, Supabase, Medusa" },
-  { group: "Mobile", items: "Kotlin, Flutter" },
-  { group: "DevOps", items: "Docker, VPS hosting, automated deployments" },
-  { group: "Growth", items: "SEO, Meta Ads, Google Analytics" },
+  {
+    group: "Frontend",
+    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Astro"],
+    tint: "bg-orange-100 text-orange-800",
+  },
+  {
+    group: "Backend",
+    items: ["Node.js", "Express", "Prisma", "PostgreSQL", "Supabase", "Medusa"],
+    tint: "bg-teal-100 text-teal-800",
+  },
+  { group: "Mobile", items: ["Kotlin", "Flutter"], tint: "bg-indigo-100 text-indigo-800" },
+  {
+    group: "DevOps",
+    items: ["Docker", "VPS hosting", "Automated deployments"],
+    tint: "bg-amber-100 text-amber-800",
+  },
+  {
+    group: "Growth",
+    items: ["SEO", "Meta Ads", "Google Analytics"],
+    tint: "bg-rose-100 text-rose-800",
+  },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-sm font-medium uppercase tracking-widest text-muted">{children}</h2>;
+  return <h2 className="font-sora text-xl font-bold">{children}</h2>;
 }
 
 export default function Home() {
   return (
-    <main className="mx-auto flex max-w-2xl flex-col gap-16 px-5 py-20 sm:px-6 sm:py-28">
-      <header>
-        <h1 className="font-sora text-3xl font-bold tracking-tight sm:text-4xl">Sikandar Abbas</h1>
-        <p className="mt-2 font-medium">Full Stack Web Developer, Lahore, Pakistan</p>
-        <p className="mt-6 leading-7 text-muted">
-          Full stack web developer with {yearsOfExperience}+ years of experience building websites,
-          e-commerce platforms and web applications for clients in Pakistan and abroad. I work across
-          the stack with Next.js, React, TypeScript, Node.js and PostgreSQL, and deploy and run what I
-          build. I also handle SEO and paid ads, so the work reaches customers.
+    <main className="mx-auto flex max-w-3xl flex-col gap-14 px-5 py-10 sm:px-6 sm:py-14">
+      <header className="rounded-3xl border border-border bg-gradient-to-br from-orange-100 via-white to-teal-100 p-6 sm:p-10">
+        <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-medium text-secondary">
+          <span className="h-2 w-2 rounded-full bg-secondary" aria-hidden />
+          Available for freelance projects
         </p>
+        <h1 className="mt-5 font-sora text-4xl font-bold tracking-tight sm:text-5xl">Sikandar Abbas</h1>
+        <p className="mt-2 text-lg font-semibold text-primary">Full Stack Web Developer</p>
+        <p className="mt-5 leading-7 text-muted">
+          Full stack web developer in Lahore, Pakistan, with {yearsOfExperience}+ years of experience
+          building websites, e-commerce platforms and web applications for clients in Pakistan and
+          abroad. I work across the stack with Next.js, React, TypeScript, Node.js and PostgreSQL, and
+          deploy and run what I build. I also handle SEO and paid ads, so the work reaches customers.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            View Projects <ArrowRight size={16} />
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-xl border border-foreground/15 bg-white px-5 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+          >
+            Contact Me
+          </Link>
+        </div>
         <nav className="mt-6 flex gap-6 text-sm font-medium">
           {links.map((item) => (
             <a
@@ -135,7 +106,7 @@ export default function Home() {
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+              className="text-muted transition-colors hover:text-primary"
             >
               {item.label}
             </a>
@@ -145,16 +116,22 @@ export default function Home() {
 
       <section>
         <SectionTitle>Experience</SectionTitle>
-        <div className="mt-6 flex flex-col gap-10">
+        <div className="mt-6 flex flex-col gap-9 border-l-2 border-primary/25 pl-6">
           {experience.map((job) => (
-            <article key={job.company}>
-              <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-                <h3 className="font-medium">
-                  {job.role} <span className="text-muted">— {job.company}</span>
+            <article key={job.company} className="relative">
+              <span
+                aria-hidden
+                className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-primary ring-4 ring-background"
+              />
+              <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:gap-4">
+                <h3 className="font-semibold">
+                  {job.role} <span className="text-primary">— {job.company}</span>
                 </h3>
-                <span className="shrink-0 text-sm text-muted">{job.date}</span>
+                <span className="shrink-0 rounded-full bg-teal-100 px-3 py-0.5 text-xs font-medium text-teal-800">
+                  {job.date}
+                </span>
               </div>
-              <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-sm leading-6 text-muted marker:text-border">
+              <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-sm leading-6 text-muted marker:text-primary">
                 {job.points.map((point) => (
                   <li key={point}>{point}</li>
                 ))}
@@ -165,51 +142,34 @@ export default function Home() {
       </section>
 
       <section>
-        <SectionTitle>Projects</SectionTitle>
-        <ul className="mt-2 divide-y divide-border">
-          {projects.map((project) => (
-            <li key={project.title}>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start justify-between gap-4 py-4"
-              >
-                <span>
-                  <span className="block font-medium">{project.title}</span>
-                  <span className="mt-1 block text-sm leading-6 text-muted">{project.description}</span>
-                  {project.stack && (
-                    <span className="mt-1 block text-xs leading-5 text-muted/70">{project.stack}</span>
-                  )}
-                </span>
-                <ArrowUpRight
-                  size={18}
-                  className="mt-1 shrink-0 text-muted transition-colors group-hover:text-foreground"
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
         <SectionTitle>Skills</SectionTitle>
-        <dl className="mt-6 flex flex-col gap-2 text-sm leading-6">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {skills.map((skill) => (
-            <div key={skill.group} className="flex flex-col sm:flex-row sm:gap-4">
-              <dt className="shrink-0 font-medium sm:w-24">{skill.group}</dt>
-              <dd className="text-muted">{skill.items}</dd>
+            <div key={skill.group}>
+              <h3 className="text-sm font-semibold">{skill.group}</h3>
+              <ul className="mt-2 flex flex-wrap gap-2">
+                {skill.items.map((item) => (
+                  <li key={item} className={`rounded-full px-3 py-1 text-xs font-medium ${skill.tint}`}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
-        </dl>
+        </div>
       </section>
 
-      <section id="contact">
-        <SectionTitle>Contact</SectionTitle>
-        <p className="mt-6 text-sm leading-6 text-muted">
-          Available for freelance projects. Tell me what you need, and I&apos;ll reply by email.
-        </p>
-        <ContactForm />
+      <section className="flex flex-col items-start justify-between gap-4 rounded-3xl bg-primary p-6 text-white sm:flex-row sm:items-center sm:p-8">
+        <div>
+          <h2 className="font-sora text-xl font-bold">Want to see the work?</h2>
+          <p className="mt-1 text-sm text-white/85">Client work, products and personal builds.</p>
+        </div>
+        <Link
+          href="/projects"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
+        >
+          View Projects <ArrowRight size={16} />
+        </Link>
       </section>
     </main>
   );

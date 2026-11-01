@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const field =
-  "w-full rounded-lg border border-border bg-transparent px-3 py-2.5 text-sm text-foreground placeholder-muted focus:border-foreground focus:outline-none disabled:opacity-60";
+  "w-full rounded-xl border border-border bg-card-bg px-3 py-2.5 text-sm text-foreground placeholder-muted focus:border-primary focus:outline-none disabled:opacity-60";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -32,7 +32,7 @@ export default function ContactForm() {
   const busy = status === "sending";
 
   return (
-    <form onSubmit={send} className="mt-6 flex flex-col gap-3">
+    <form onSubmit={send} className="flex flex-col gap-3">
       <div className="flex flex-col gap-3 sm:flex-row">
         <input
           name="name"
@@ -71,7 +71,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={busy}
-          className="rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85 disabled:opacity-60"
+          className="rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
         >
           {busy ? "Sending..." : "Send message"}
         </button>

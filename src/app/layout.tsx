@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const sora = Sora({
@@ -41,10 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
         className={`${sora.variable} ${inter.variable} antialiased font-inter bg-background text-foreground`}
       >
+        <SiteNav />
         {children}
       </body>
     </html>
