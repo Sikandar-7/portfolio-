@@ -61,13 +61,13 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl px-5 py-20 sm:px-6 sm:py-28">
+    <main className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
       <h1 className="font-sora text-3xl font-bold tracking-tight sm:text-4xl">Sikandar Abbas</h1>
 
-      <p className="mt-6 text-[15px] leading-8 text-muted sm:text-lg">
-        <span className="block">Full stack developer in Lahore since 2023.</span>
-        <span className="block">I build websites, online stores and apps.</span>
-        <span className="block">I also run ads and SEO to bring customers.</span>
+      <p className="mt-6 text-lg leading-8 text-muted">
+        <span className="block">Full stack developer from Lahore, Pakistan, building since 2023.</span>
+        <span className="block">I make websites, online stores, mobile apps and WhatsApp automation.</span>
+        <span className="block">I also handle ads and SEO, so what I build gets customers.</span>
       </p>
 
       <nav className="mt-6 flex gap-6 text-sm font-medium">
