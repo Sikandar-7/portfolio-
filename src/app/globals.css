@@ -3,15 +3,14 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  --background: #FBFAF7;
-  --foreground: #17171B;
-  --primary: #D13A12;
-  --secondary: #0F766E;
-  --muted: #5C5F66;
-  --border: #E7E3DA;
+  --background: #0C0C0C;
+  --foreground: #ffffff;
+  --primary: #FF5733;
+  --secondary: #BFFF3F;
+  --muted: #999999;
+  --border: #333333;
   --card-bg: #FFFFFF;
-  --card-fg: #17171B;
+  --card-fg: #000000;
 }
 
 @theme inline {

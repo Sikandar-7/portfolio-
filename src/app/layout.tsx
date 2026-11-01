@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
-import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const sora = Sora({
@@ -19,12 +18,16 @@ export const metadata: Metadata = {
   // build resolves them to localhost and the warning hides real problems.
   metadataBase: new URL("https://sikandarabbas.com"),
   title: "Sikandar Abbas - Full Stack Developer",
+  // The description is the sentence Google shows under the title and the
+  // one that appears on every shared link. It said "Premium Portfolio
+  // built with Next.js and Tailwind CSS" — which describes the template,
+  // not the person, and gives a reader no reason to click.
   description:
-    "Full stack developer from Lahore, Pakistan. Websites, online stores, mobile apps and WhatsApp automation.",
+    "Full stack developer in Lahore. Founder of Buraq Tech, and the builder of hashChat — a multi-tenant WhatsApp CRM. Next.js, Node and Postgres, shipped and running in production.",
   openGraph: {
     title: "Sikandar Abbas — Full Stack Developer",
     description:
-      "Full stack developer from Lahore, Pakistan. Websites, online stores, mobile apps and WhatsApp automation.",
+      "Founder of Buraq Tech. Builds WhatsApp CRM, B2B e-commerce and multi-panel platforms — live, not mockups.",
     type: "profile",
     locale: "en_US",
   },
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sikandar Abbas — Full Stack Developer",
     description:
-      "Full stack developer from Lahore, Pakistan. Websites, online stores, mobile apps and WhatsApp automation.",
+      "Founder of Buraq Tech. Builds WhatsApp CRM, B2B e-commerce and multi-panel platforms — live, not mockups.",
   },
 };
 
@@ -42,11 +45,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${sora.variable} ${inter.variable} antialiased font-inter bg-background text-foreground`}
       >
-        <SiteNav />
         {children}
       </body>
     </html>
